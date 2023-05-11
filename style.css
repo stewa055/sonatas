@@ -1,0 +1,146 @@
+@import 'https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:300,400';
+html * {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.post {
+  display: block;
+  height: 30rem;
+  width: 30rem;
+  background: linear-gradient(#64e689, #b6ee56);
+  box-shadow: 0 2.5rem 5rem -2.75rem rgba(0, 0, 0, 0.85);
+}
+div.post-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  overflow: hidden;
+  box-shadow: inset 0 0 5rem rgba(255, 255, 255, 0.65);
+}
+div.post-container:after, div.post-container:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, #e8e4cf, #50ebeb);
+  opacity: 1;
+  z-index: 1;
+  will-change: transform;
+  mix-blend-mode: color-burn;
+}
+div.post-container:before {
+  top: 40%;
+  right: 30%;
+  animation-name: rotate;
+  animation-duration: 12s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+div.post-container:after {
+  top: -20%;
+  right: -60%;
+  animation-name: rotate;
+  animation-duration: 16s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+div.post-title {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-fill-mode: forward;
+}
+div.post-title h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+div.post-title h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+div.post-meta {
+  position: absolute;
+  bottom: 3rem;
+  z-index: 100;
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+div.post-meta p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+
+.bg {
+  z-index: -2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #8fe1a2;
+  overflow: hidden;
+}
+.bg:after, .bg:before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  position: absolute;
+}
+.bg:before {
+  z-index: -1;
+  top: -160%;
+  left: -40%;
+  transform: rotate(155deg);
+  background: #e9e65d;
+  box-shadow: 0 -1rem 4rem rgba(0, 0, 0, 0.35);
+}
+.bg:after {
+  z-index: -3;
+  top: -180%;
+  left: -40%;
+  transform: rotate(20deg);
+  background: #5ae29e;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
